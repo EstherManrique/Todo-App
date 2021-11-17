@@ -1,28 +1,17 @@
-import React, { useState } from "react";
+import React from "react";
 import Todo from "./Todo";
 
-const initialTodos = [
-  {
-    title: "Todo #1",
-    description: "Desc del Todo #1",
-    completed: false,
-  },
-  {
-    title: "Todo #2",
-    description: "Desc del Todo #2",
-    completed: true,
-  },
-];
-
-const TodoList = () => {
-
-  const [todos, setTodos] = useState(initialTodos);
-
+const TodoList = ({ todos, todoDelete, todoToogleComplete }) => {
   return (
     <div>
       <h1 className="text-right">Soy TodoList</h1>
       {todos.map((todo) => (
-        <Todo todo={todo}/>
+        <Todo 
+        todo={todo} 
+        key={todo.id} 
+        todoDelete={todoDelete} 
+        todoToogleComplete={todoToogleComplete}
+        />
       ))}
     </div>
   );
